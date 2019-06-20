@@ -1,0 +1,13 @@
+from machine import Pin
+from machine import ADC
+from time import sleep
+p0 = Pin(5, Pin.OUT)
+audio= ADC(0)
+while True:
+  print(audio.read())
+  if audio.read() >= 200:
+    print("Marcaste un decibel mayor que 200") #p0 = on
+    p0.value(1)
+    sleep(0.3)
+    p0.value(0)
+  sleep(0.3)
